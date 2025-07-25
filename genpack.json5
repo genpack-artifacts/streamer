@@ -1,0 +1,161 @@
+{
+    gentoo_profile: "desktop/gnome/systemd",
+    compression: "xz",
+    packages: [
+        "genpack/systemimg",
+        "gnome-base/gnome",
+        "app-emulation/spice-vdagent",
+        "net-wireless/iw",
+        "app-i18n/mozc",
+        "media-fonts/noto",
+        "media-fonts/noto-emoji",
+        "media-sound/pavucontrol",
+        "x11-apps/mesa-progs",
+        "media-video/libva-utils",
+        "net-libs/libnsl", // for libnsl.so.3
+        "media-video/vlc",
+        "net-misc/spice-gtk",
+        "dev-util/glib-utils", // virt-viewer needs /usr/bin/glib-mkenums
+        "app-admin/sudo",
+        "app-misc/evtest",
+        "net-misc/remmina",
+        "net-misc/iperf",
+        "app-misc/screen",
+        "media-gfx/gimp",
+        "dev-vcs/git",
+        "sys-auth/rtkit",
+        "www-servers/apache",
+        "media-gfx/inkscape",
+        "app-misc/radeontop",
+        "dev-libs/rocm-opencl-runtime",
+        "dev-util/clinfo",
+        "dev-python/pyqt6-webengine",
+        "dev-util/vulkan-tools",
+        "net-analyzer/zabbix",
+        "net-im/discord",
+        "net-misc/gnome-remote-desktop",
+        "x11-drivers/nvidia-drivers",
+        "gui-apps/wl-clipboard",
+        "www-client/google-chrome",
+        "net-ftp/filezilla",
+        "media-video/obs-studio",
+        "media-plugins/obs-pipewire-audio-capture",
+        "media-plugins/obs-source-record",
+        "media-sound/audacious",
+        "dev-python/pip", // for liveapp
+        "dev-python/qrcode", // for liveapp
+        "dev-python/beautifulsoup4", // for liveapp
+        "dev-python/aiohttp", // for liveapp(discord)
+        "dev-python/audioop-lts", // for liveapp(discord)
+        "app-misc/mosquitto",
+        "=sys-fs/fuse-2.9.9-r2", // for voicevox
+        "app-arch/p7zip", // for voicevox
+        "app-editors/vscode",
+        // for obs-studio(https://bugs.gentoo.org/959751)
+        "kde-frameworks/extra-cmake-modules",
+        // srs
+        "net-libs/libsrtp",
+        "net-libs/srt",
+        "media-video/ffmpeg-compat",
+    ],
+    buildtime_packages: [
+        "dev-build/automake",
+        "dev-lang/tcl", // for srs
+        "dev-build/cmake", // for srs
+        "app-arch/deb2targz", // for obs plugins
+    ],
+    circulardep_breaker: {
+        "packages": ["dev-python/pillow", "media-libs/freetype","media-libs/harfbuzz","dev-libs/glib","dev-util/wayland-scanner"],
+        "use": "-truetype -harfbuzz -cairo -sysprof"
+    },
+    accept_keywords: {
+        "sys-kernel/gentoo-kernel-bin": null, // Linux 6.12(LTS) does not work with RTL8852CE properly
+        "virtual/dist-kernel": null, // for gentoo-kernel-bin
+        "sys-kernel/linux-firmware": null, // latest firmware helps working with newer hardware
+        "app-i18n/mozc": null,
+        "dev-cpp/abseil-cpp": null, // for abseil-cpp-20250512.0 mozc needs
+        "dev-util/clinfo": null,
+        "dev-util/glslang": null, // for glslang-1.4.313.0
+        // obs-studio
+        "media-video/obs-studio": null,
+        "net-libs/mbedtls": null,
+        "dev-libs/qr-code-generator": null,
+        "media-plugins/obs-pipewire-audio-capture": null,
+        "media-plugins/obs-source-record": null,
+        // ROCm
+        "dev-libs/rocm-opencl-runtime": null,
+        "dev-libs/rocr-runtime": null,
+        "dev-libs/rocm-comgr": null,
+        "dev-libs/rocm-device-libs": null,
+        "dev-build/rocm-cmake": null,
+        "dev-util/hipcc": null,
+        "dev-libs/roct-thunk-interface": null,
+        // freerdp
+        "net-misc/freerdp": null,
+        "media-libs/libsdl3": null,
+        "media-libs/sdl3-ttf": null,
+        "media-libs/plutosvg": null, 
+        "media-libs/plutovg": null,
+    },
+    use: {
+        "genpack/systemimg": "baremetal",
+        "sys-boot/grub": "GRUB_PLATFORMS: pc efi-32",
+        "sys-apps/systemd": "policykit",
+        "app-i18n/mozc": "ibus renderer",
+        "sys-libs/zlib": "minizip",
+        "media-fonts/noto": "cjk",
+        "media-libs/mesa": "vulkan vaapi VIDEO_CARDS: virgl zink",
+        "x11-apps/mesa-progs": "X gles2 vulkan",
+        "media-video/pipewire": "gsettings echo-cancel ffmpeg extra sound-server",
+        "media-video/ffmpeg": "amf v4l x264 x265 opus srt vaapi nvenc opencl CPU_FLAGS_X86: avx avx2 fma3 fma4 sse3 sse4_1 sse4_2 ssse3",
+        "media-video/vlc": "x265 pulseaudio opus v4l",
+        "media-video/obs-studio": "browser pipewire python v4l vlc websocket nvenc",
+        "gnome-base/gnome-shell": "pipewire",
+        "net-misc/spice-gtk": "lz4 mjpeg",
+        "net-misc/freerdp": "server",
+        "x11-wm/mutter": "screencast",
+        "media-libs/freetype" : "harfbuzz",
+        "dev-libs/libdbusmenu": "gtk3",
+        "net-analyzer/zabbix": "-postgres",
+        "media-libs/opencv": "python opencl CPU_FLAGS_X86: avx avx2 f16c fma3 popcnt sse3 sse4_1 sse4_2 ssse3",
+        "www-servers/apache": "APACHE2_MODULES: proxy proxy_http",
+        "dev-python/pyqt6": "multimedia positioning websockets webchannel",
+        "net-misc/remmina": "rdp vnc spice wayland",
+        "media-libs/libcanberra": "alsa", // for mutter
+        // gimp
+        "media-libs/gegl": "cairo ffmpeg sdl2 v4l webp",
+        "app-text/poppler": "cairo cjk",
+        // qtwebengine
+        "dev-qt/qtwebengine": "screencast vaapi webdriver",
+        "dev-libs/libxml2": "icu",
+        // gnome
+        "media-libs/libmediaart": "gtk -qt6",
+        // inkscape
+        "dev-python/pillow": "webp",
+    },
+    license: {
+        "sys-kernel/linux-firmware": "linux-fw-redistributable",
+        "www-client/google-chrome": "google-chrome",
+        "net-im/discord": "all-rights-reserved",
+        "media-video/amdgpu-pro-amf": "AMD-GPU-PRO-EULA", // for ffmpeg[amf]
+        "x11-drivers/nvidia-drivers": "NVIDIA-2025",
+        "app-editors/vscode":"Microsoft-vscode"
+    },
+    users: [
+        {
+            name: "streamer",
+            uid: 1000,
+            "empty-password": true,
+            "additional-groups": [
+                "wheel",
+                "audio",
+                "video",
+                "input",
+                "usb",
+                "kvm",
+            ]
+        }
+    ],
+    services:["gdm","NetworkManager","bluetooth","mosquitto","apache2"],
+}
+// vm run --memory=16384 --display=gtk --accel=opengl --hostfwd=tcp::3391-:3389 streamer-x86_64.squashfs

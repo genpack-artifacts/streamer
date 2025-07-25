@@ -1,0 +1,8 @@
+polkit.addRule(function(action, subject) {
+    if ( subject.isInGroup("wheel") &&
+         ( action.id == "org.gnome.controlcenter.remote-session-helper"
+         || action.id == "org.gnome.remotedesktop.configure-system-daemon"
+         ) ) {
+        return polkit.Result.YES;
+    }
+});
