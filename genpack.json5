@@ -46,6 +46,7 @@
         "media-video/obs-studio",
         "media-plugins/obs-pipewire-audio-capture",
         "media-plugins/obs-source-record",
+        "media-plugins/obs-3d-effect",
         "media-sound/audacious",
         "dev-python/pip", // for liveapp
         "dev-python/qrcode", // for liveapp
@@ -83,11 +84,12 @@
         "dev-util/glslang": null, // for glslang-1.4.313.0
         "x11-drivers/nvidia-drivers": null, // latest nvidia-drivers
         // obs-studio
-        "media-video/obs-studio": null,
+        "=media-video/obs-studio-31.0.4": null,
         "net-libs/mbedtls": null,
         "dev-libs/qr-code-generator": null,
         "media-plugins/obs-pipewire-audio-capture": null,
         "media-plugins/obs-source-record": null,
+        "media-plugins/obs-3d-effect": null,
         // ROCm
         "dev-libs/rocm-opencl-runtime": null,
         "dev-libs/rocr-runtime": null,
@@ -102,6 +104,10 @@
         "media-libs/sdl3-ttf": null,
         "media-libs/plutosvg": null, 
         "media-libs/plutovg": null,
+        // latest gimp
+        "media-gfx/gimp": null,
+        "media-libs/babl": null,
+        "media-libs/gegl": null,
     },
     use: {
         "genpack/systemimg": "baremetal",
@@ -131,6 +137,7 @@
         "dev-python/pyqt6": "multimedia positioning websockets webchannel",
         "net-misc/remmina": "rdp vnc spice wayland",
         "media-libs/libcanberra": "alsa", // for mutter
+        "net-im/discord": "-wayland", // for japanese input method
         // gimp
         "media-libs/gegl": "cairo ffmpeg sdl2 v4l webp",
         "app-text/poppler": "cairo cjk",
