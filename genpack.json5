@@ -9,6 +9,7 @@
         "app-i18n/mozc",
         "media-fonts/noto",
         "media-fonts/noto-emoji",
+        "media-fonts/aquafont",
         "media-sound/pavucontrol",
         "x11-apps/mesa-progs",
         "media-video/libva-utils",
@@ -34,9 +35,11 @@
         "dev-python/pyqt6-webengine",
         "dev-util/vulkan-tools",
         "net-analyzer/zabbix",
+        "net-analyzer/iftop",
         "net-im/discord",
         "net-misc/gnome-remote-desktop",
         "x11-drivers/nvidia-drivers",
+        "sys-process/nvtop",
         "gui-apps/wl-clipboard",
         "www-client/google-chrome",
         "net-ftp/filezilla",
@@ -78,6 +81,7 @@
         "dev-cpp/abseil-cpp": null, // for abseil-cpp-20250512.0 mozc needs
         "dev-util/clinfo": null,
         "dev-util/glslang": null, // for glslang-1.4.313.0
+        "x11-drivers/nvidia-drivers": null, // latest nvidia-drivers
         // obs-studio
         "media-video/obs-studio": null,
         "net-libs/mbedtls": null,
@@ -112,6 +116,7 @@
         "media-video/ffmpeg": "amf v4l x264 x265 opus srt vaapi nvenc opencl CPU_FLAGS_X86: avx avx2 fma3 fma4 sse3 sse4_1 sse4_2 ssse3",
         "media-video/vlc": "x265 pulseaudio opus v4l",
         "media-video/obs-studio": "browser pipewire python v4l vlc websocket nvenc",
+        "sys-process/nvtop": "VIDEO_CARDS: nvidia",
         "gnome-base/gnome-shell": "pipewire",
         "net-misc/spice-gtk": "lz4 mjpeg",
         "net-misc/freerdp": "server",
@@ -143,7 +148,8 @@
         "net-im/discord": "all-rights-reserved",
         "media-video/amdgpu-pro-amf": "AMD-GPU-PRO-EULA", // for ffmpeg[amf]
         "x11-drivers/nvidia-drivers": "NVIDIA-2025",
-        "app-editors/vscode":"Microsoft-vscode"
+        "app-editors/vscode":"Microsoft-vscode",
+        "media-fonts/aquafont": "aquafont"
     },
     users: [
         {
