@@ -47,6 +47,7 @@
         "media-plugins/obs-pipewire-audio-capture",
         "media-plugins/obs-source-record",
         "media-plugins/obs-3d-effect",
+        "media-plugins/obs-scale-to-sound",
         "media-sound/audacious",
         "dev-python/pip", // for liveapp
         "dev-python/qrcode", // for liveapp
@@ -90,6 +91,7 @@
         "media-plugins/obs-pipewire-audio-capture": null,
         "media-plugins/obs-source-record": null,
         "media-plugins/obs-3d-effect": null,
+        "media-plugins/obs-scale-to-sound": null,
         // ROCm
         "dev-libs/rocm-opencl-runtime": null,
         "dev-libs/rocr-runtime": null,
