@@ -15,6 +15,7 @@
         "media-video/libva-utils",
         "net-libs/libnsl", // for libnsl.so.3
         "media-video/vlc",
+        "media-plugins/gst-plugins-libav",
         "net-misc/spice-gtk",
         "dev-util/glib-utils", // virt-viewer needs /usr/bin/glib-mkenums
         "app-admin/sudo",
@@ -85,7 +86,7 @@
         "dev-util/glslang": null, // for glslang-1.4.313.0
         "x11-drivers/nvidia-drivers": null, // latest nvidia-drivers
         // obs-studio
-        "=media-video/obs-studio-31.0.4": null,
+        "media-video/obs-studio": null,
         "net-libs/mbedtls": null,
         "dev-libs/qr-code-generator": null,
         "media-plugins/obs-pipewire-audio-capture": null,
