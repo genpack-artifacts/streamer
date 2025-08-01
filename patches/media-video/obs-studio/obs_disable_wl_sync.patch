@@ -1,0 +1,13 @@
+diff --git a/plugins/linux-pipewire/pipewire.c b/plugins/linux-pipewire/pipewire.c
+index 2b98c0e..03dd0cc 100644
+--- a/plugins/linux-pipewire/pipewire.c
++++ b/plugins/linux-pipewire/pipewire.c
+@@ -563,7 +563,7 @@ static void return_unused_pw_buffer(struct pw_stream *stream, struct pw_buffer *
+ 	struct spa_meta_sync_timeline *synctimeline =
+ 		spa_buffer_find_meta_data(buffer, SPA_META_SyncTimeline, sizeof(struct spa_meta_sync_timeline));
+ 
+-	if (synctimeline && (last_data->type == SPA_DATA_SyncObj))
++	if (!getenv("OBS_DISABLE_WL_SYNC") && synctimeline && (last_data->type == SPA_DATA_SyncObj))
+ 		gs_sync_signal_syncobj_timeline_point(last_data->fd, synctimeline->release_point);
+ #endif
+ 	pw_stream_queue_buffer(stream, b);

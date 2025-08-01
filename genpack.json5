@@ -66,6 +66,7 @@
         "net-libs/srt",
         "media-video/ffmpeg-compat",
     ],
+    binpkg_excludes: ["media-video/obs-studio"],
     buildtime_packages: [
         "dev-build/automake",
         "dev-lang/tcl", // for srs
@@ -119,7 +120,7 @@
         "app-i18n/mozc": "ibus renderer",
         "sys-libs/zlib": "minizip",
         "media-fonts/noto": "cjk",
-        "media-libs/mesa": "vulkan vaapi VIDEO_CARDS: virgl zink",
+        "media-libs/mesa": "vulkan vaapi VIDEO_CARDS: lavapipe virgl zink",
         "x11-apps/mesa-progs": "X gles2 vulkan",
         "media-video/pipewire": "gsettings echo-cancel ffmpeg extra sound-server",
         "media-video/ffmpeg": "amf v4l x264 x265 opus srt vaapi nvenc opencl CPU_FLAGS_X86: avx avx2 fma3 fma4 sse3 sse4_1 sse4_2 ssse3",
