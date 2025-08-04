@@ -50,6 +50,7 @@
         "media-plugins/obs-3d-effect",
         "media-plugins/obs-scale-to-sound",
         "media-sound/audacious",
+        "dev-python/magic-wormhole",
         "dev-python/pip", // for liveapp
         "dev-python/qrcode", // for liveapp
         "dev-python/beautifulsoup4", // for liveapp
