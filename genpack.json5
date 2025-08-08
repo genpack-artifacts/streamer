@@ -40,6 +40,7 @@
         "net-im/discord",
         "net-misc/gnome-remote-desktop",
         "x11-drivers/nvidia-drivers",
+        "media-libs/libva-intel-media-driver",
         "sys-process/nvtop",
         "gui-apps/wl-clipboard",
         "www-client/google-chrome",
@@ -160,6 +161,7 @@
         "net-im/discord": "all-rights-reserved",
         "media-video/amdgpu-pro-amf": "AMD-GPU-PRO-EULA", // for ffmpeg[amf]
         "x11-drivers/nvidia-drivers": "NVIDIA-2025",
+        "media-libs/libva-intel-media-driver": "no-source-code",
         "app-editors/vscode":"Microsoft-vscode",
         "media-fonts/aquafont": "aquafont"
     },
