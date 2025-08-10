@@ -7,7 +7,7 @@
         "app-emulation/spice-vdagent",
         "net-wireless/iw",
         "app-i18n/mozc",
-        "media-fonts/noto",
+        "media-fonts/noto-cjk",
         "media-fonts/noto-emoji",
         "media-fonts/aquafont",
         "media-sound/pavucontrol",
@@ -15,7 +15,6 @@
         "media-video/libva-utils",
         "net-libs/libnsl", // for libnsl.so.3
         "media-video/vlc",
-        "media-plugins/gst-plugins-libav",
         "net-misc/spice-gtk",
         "dev-util/glib-utils", // virt-viewer needs /usr/bin/glib-mkenums
         "app-admin/sudo",
@@ -126,13 +125,15 @@
         "x11-apps/mesa-progs": "X gles2 vulkan",
         "media-video/pipewire": "gsettings echo-cancel ffmpeg extra sound-server",
         "media-video/ffmpeg": "amf v4l x264 x265 opus srt vaapi nvenc opencl CPU_FLAGS_X86: avx avx2 fma3 fma4 sse3 sse4_1 sse4_2 ssse3",
-        "media-video/vlc": "x265 pulseaudio opus v4l",
+        "media-video/vlc": "x265 pulseaudio opus v4l vaapi",
         "media-video/obs-studio": "browser pipewire python v4l vlc websocket nvenc",
+        "media-libs/gst-plugins-bad": "vaapi vnc",
+        "media-plugins/gst-plugins-meta":  "ffmpeg v4l vaapi",
         "sys-process/nvtop": "VIDEO_CARDS: nvidia",
         "gnome-base/gnome-shell": "pipewire",
         "net-misc/spice-gtk": "lz4 mjpeg",
         "net-misc/freerdp": "server",
-        "x11-wm/mutter": "screencast",
+        "x11-wm/mutter": "screencast VIDEO_CARDS: nvidia",
         "media-libs/freetype" : "harfbuzz",
         "dev-libs/libdbusmenu": "gtk3",
         "net-analyzer/zabbix": "-postgres",
@@ -180,6 +181,6 @@
             ]
         }
     ],
-    services:["gdm","NetworkManager","bluetooth","mosquitto","apache2"],
+    services:["gdm","NetworkManager","bluetooth","mosquitto","apache2","avahi-daemon"],
 }
 // vm run --memory=16384 --display=gtk --accel=opengl --hostfwd=tcp::3391-:3389 streamer-x86_64.squashfs
