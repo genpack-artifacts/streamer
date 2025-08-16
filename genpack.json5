@@ -38,6 +38,7 @@
         "net-analyzer/iftop",
         "net-im/discord",
         "net-misc/gnome-remote-desktop",
+        "gnome-extra/gnome-browser-connector",
         "x11-drivers/nvidia-drivers",
         "media-libs/libva-intel-media-driver",
         "sys-process/nvtop",
