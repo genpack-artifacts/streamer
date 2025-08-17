@@ -40,6 +40,7 @@
         "net-misc/gnome-remote-desktop",
         "gnome-extra/gnome-browser-connector",
         "x11-drivers/nvidia-drivers",
+        "media-libs/nvidia-vaapi-driver",
         "media-libs/libva-intel-media-driver",
         "sys-process/nvtop",
         "gui-apps/wl-clipboard",
@@ -59,6 +60,10 @@
         "dev-python/aiohttp", // for liveapp(discord)
         "dev-python/audioop-lts", // for liveapp(discord)
         "app-misc/mosquitto",
+        "dev-python/websocket-client", // for market-streamer
+        "dev-python/paho-mqtt", // for market-streamer
+        "net-libs/paho-mqtt-c", // for market-streamer
+        "media-libs/opencv", // for market-streamer
         "=sys-fs/fuse-2.9.9-r2", // for voicevox
         "app-arch/p7zip", // for voicevox
         "app-editors/vscode",
@@ -89,6 +94,8 @@
         "dev-util/clinfo": null,
         "dev-util/glslang": null, // for glslang-1.4.313.0
         "x11-drivers/nvidia-drivers": null, // latest nvidia-drivers
+        "media-libs/nvidia-vaapi-driver": null,
+
         // obs-studio
         "media-video/obs-studio": null,
         "net-libs/mbedtls": null,
