@@ -19,3 +19,13 @@ cp packaging/redhat/srs.service /usr/lib/systemd/system/
 sed -i 's/\/var\/lib\/srs\/srs\.pid/\/run\/srs\/srs.pid/' /usr/lib/systemd/system/srs.service
 
 echo 'd /run/srs 0755 nobody nobody -' > /usr/lib/tmpfiles.d/srs.conf
+mkdir /etc/srs
+cat <<EOF > /etc/srs/srs.conf
+listen [::]:1935;
+srs_log_tank console;
+srs_log_level info;
+pid /run/srs/srs.pid;
+
+vhost __defaultVhost__ {
+}
+EOF
