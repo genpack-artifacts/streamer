@@ -64,6 +64,7 @@
         "dev-python/paho-mqtt", // for market-streamer
         "net-libs/paho-mqtt-c", // for market-streamer
         "media-libs/opencv", // for market-streamer
+        "media-gfx/cairosvg", // for market-streamer
         "=sys-fs/fuse-2.9.9-r2", // for voicevox
         "app-arch/p7zip", // for voicevox
         "app-editors/vscode",
