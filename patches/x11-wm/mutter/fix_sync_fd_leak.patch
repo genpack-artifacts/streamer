@@ -1,0 +1,12 @@
+diff '--color=auto' -ru mutter-47.8.1.orig/src/backends/meta-screen-cast-stream-src.c mutter-47.8.1/src/backends/meta-screen-cast-stream-src.c
+--- mutter-47.8.1.orig/src/backends/meta-screen-cast-stream-src.c	2025-06-03 06:46:29.000000000 +0900
++++ mutter-47.8.1/src/backends/meta-screen-cast-stream-src.c	2025-08-26 20:33:03.583150091 +0900
+@@ -724,7 +724,7 @@
+   ClutterBackend *clutter_backend = meta_backend_get_clutter_backend (backend);
+   CoglContext *cogl_context =
+     clutter_backend_get_cogl_context (clutter_backend);
+-  int sync_fd;
++  g_autofd int sync_fd = -1;
+   g_autoptr (GError) local_error = NULL;
+ 
+   sync_timeline = spa_buffer_find_meta_data (spa_buffer,
