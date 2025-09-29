@@ -1,24 +1,17 @@
 {
-    gentoo_profile: "desktop/gnome/systemd",
+    profile: "gnome/baremetal",
     compression: "xz",
     packages: [
-        "genpack/systemimg",
-        "gnome-base/gnome",
         "app-emulation/spice-vdagent",
         "net-wireless/iw",
         "app-i18n/mozc",
-        "media-fonts/noto-cjk",
-        "media-fonts/noto-emoji",
         "media-fonts/aquafont",
         "media-sound/pavucontrol",
-        "x11-apps/mesa-progs",
         "media-video/libva-utils",
-        "net-libs/libnsl", // for libnsl.so.3
         "media-video/vlc",
         "net-misc/spice-gtk",
         "dev-util/glib-utils", // virt-viewer needs /usr/bin/glib-mkenums
         "app-admin/sudo",
-        "app-misc/evtest",
         "net-misc/remmina",
         "net-misc/iperf",
         "app-misc/screen",
@@ -37,7 +30,6 @@
         "net-analyzer/zabbix",
         "net-analyzer/iftop",
         "net-im/discord",
-        "net-misc/gnome-remote-desktop",
         "gnome-extra/gnome-browser-connector",
         "x11-drivers/nvidia-drivers",
         "media-libs/nvidia-vaapi-driver",
@@ -68,6 +60,7 @@
         "net-libs/paho-mqtt-c", // for market-streamer
         "media-libs/opencv", // for market-streamer
         "media-gfx/cairosvg", // for market-streamer
+        "net-dns/avahi",
         "=sys-fs/fuse-2.9.9-r2", // for voicevox
         "app-arch/p7zip", // for voicevox
         "app-editors/vscode",
@@ -93,8 +86,8 @@
         "sys-kernel/gentoo-kernel-bin": null, // Linux 6.12(LTS) does not work with RTL8852CE properly
         "virtual/dist-kernel": null, // for gentoo-kernel-bin
         "sys-kernel/linux-firmware": null, // latest firmware helps working with newer hardware
-        "app-i18n/mozc": null,
-        "dev-cpp/abseil-cpp": null, // for abseil-cpp-20250512.0 mozc needs
+        //"app-i18n/mozc": null,
+        //"dev-cpp/abseil-cpp": null, // for abseil-cpp-20250512.0 mozc needs
         "dev-util/clinfo": null,
         "dev-util/glslang": null, // for glslang-1.4.313.0
         "x11-drivers/nvidia-drivers": null, // latest nvidia-drivers
@@ -102,6 +95,7 @@
         "media-libs/vpl-gpu-rt": null,
         "media-libs/libvpl-tools": null, // because libvpl-tools-1.3.0 fails to build
         "x11-apps/igt-gpu-tools": null,
+        "net-misc/gnome-remote-desktop": null, // for gnome-remote-desktop-48(vaapi support)
 
         // obs-studio
         "media-video/obs-studio": null,
@@ -132,9 +126,7 @@
         "media-libs/gegl": null,
     },
     use: {
-        "genpack/systemimg": "baremetal",
-        "sys-boot/grub": "GRUB_PLATFORMS: pc efi-32",
-        "sys-apps/systemd": "policykit",
+        //"sys-apps/systemd": "policykit",
         "app-i18n/mozc": "ibus renderer",
         "sys-libs/zlib": "minizip",
         "media-fonts/noto": "cjk",
